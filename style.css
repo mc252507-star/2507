@@ -1,0 +1,113 @@
+:root {
+    --primary: #6c5ce7;
+    --exp: #00cec9;
+    --hunger: #ff7675;
+    --money: #f1c40f;
+    --dark: #2d3436;
+}
+
+body {
+    background: #dfe6e9;
+    margin: 0;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-wrapper {
+    width: 380px;
+    height: 700px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 대시보드 */
+.main-dashboard {
+    padding: 40px 20px 20px;
+    background: #fdfdfd;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.money-display { font-size: 36px; font-weight: 900; color: var(--dark); }
+.plus-green { color: #2ecc71; font-weight: bold; }
+
+/* 스탯바 수치 표시 */
+.stat-label-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.stat-value { font-size: 12px; font-weight: bold; color: var(--primary); }
+
+.stat-bar-wrapper { margin-bottom: 15px; }
+.progress-bg { width: 100%; height: 12px; background: #eee; border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 100%; transition: width 0.3s ease; }
+.exp { background: var(--exp); }
+.hunger { background: var(--hunger); }
+
+/* 상점 아이콘 보정 */
+.item-icon-frame {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 12px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eee;
+}
+.shop-icon-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.item-lv-tag { font-size: 11px; color: var(--primary); background: #efeeff; padding: 2px 6px; border-radius: 5px; }
+
+/* 펫 화면 */
+.pet-container {
+    height: 260px;
+    background: radial-gradient(circle, #f0f7ff 0%, #d9e9ff 100%);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+#pet-img { width: 150px; z-index: 5; }
+
+/* 탭 제어 */
+.content-area { flex: 1; padding: 20px; overflow-y: auto; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* 버튼 및 기타 */
+.quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.action-btn { border: none; padding: 15px; border-radius: 15px; font-weight: bold; cursor: pointer; }
+.feed { background: #ffeaa7; }
+.sleep { background: #dfe6e9; }
+
+.bottom-nav { display: grid; grid-template-columns: 1fr 1fr; height: 80px; border-top: 1px solid #eee; }
+.nav-btn { border: none; background: #fff; font-size: 16px; font-weight: bold; color: #ccc; cursor: pointer; }
+.nav-btn.active { color: var(--primary); }
+
+#game-log { background: var(--dark); color: #fff; font-size: 12px; padding: 10px; text-align: center; }
+
+/* 클릭 효과 */
+.floating-money {
+    position: absolute; color: var(--money); font-weight: 900; font-size: 24px;
+    pointer-events: none; animation: floatUp 0.8s forwards; z-index: 10;
+}
+@keyframes floatUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-100px); } }
