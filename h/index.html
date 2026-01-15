@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oiiaioo Tycoon Pro - Updated</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <header class="main-dashboard">
+            <div class="money-display">
+                <span class="coin-icon">💰</span>
+                <span id="total-money">0</span> <small>G</small>
+            </div>
+            <div class="auto-income-info">
+                초당 수익: <span class="plus-green">+<span id="gps-val">0</span>G</span>
+            </div>
+        </header>
+
+        <div class="content-area">
+            
+            <section id="tab-home" class="tab-content active">
+                <div class="pet-container" onclick="handlePetClick(event)">
+                    <div class="level-badge">Lv.<span id="lv-num">1</span></div>
+                    <img id="pet-img" src="images/pet-idle.gif" alt="Pet Character">
+                    <div id="click-effect-container"></div>
+                </div>
+
+                <div class="stat-group">
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-label-row">
+                            <label>EXP (경험치)</label>
+                            <span class="stat-value"><span id="val-exp">0</span> / 100</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div id="bar-exp" class="progress-fill exp" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-bar-wrapper">
+                        <div class="stat-label-row">
+                            <label>HUNGER (배고픔)</label>
+                            <span class="stat-value"><span id="val-hunger">100</span>%</span>
+                        </div>
+                        <div class="progress-bg">
+                            <div id="bar-hunger" class="progress-fill hunger" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <button class="action-btn feed" onclick="interact('feed')">🍗 밥주기 (50G)</button>
+                    <button class="action-btn sleep" onclick="interact('sleep')" id="btn-sleep">💤 잠자기</button>
+                </div>
+            </section>
+
+            <section id="tab-shop" class="tab-content">
+                <h2 class="shop-title">업그레이드 상점</h2>
+                <div class="shop-list">
+                    
+                    <div class="shop-item" onclick="buyUpgrade('click')">
+                        <div class="item-icon-frame">
+                            <img src="images/icon-click.png" alt="Click Upgrade" class="shop-icon-img">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">강력한 손가락 <span class="item-lv-tag">Lv.<span id="up-click-lv">0</span></span></div>
+                            <div class="item-desc">클릭당 수익 <span id="click-power-val">1</span>G 증가</div>
+                        </div>
+                        <div class="item-cost"><span id="up-click-cost">100</span>G</div>
+                    </div>
+
+                    <div class="shop-item" onclick="buyUpgrade('auto')">
+                        <div class="item-icon-frame">
+                            <img src="images/icon-auto.png" alt="Auto Upgrade" class="shop-icon-img">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">자동 오이아이봇 <span class="item-lv-tag">Lv.<span id="up-auto-lv">0</span></span></div>
+                            <div class="item-desc">1초마다 자동으로 돈을 법니다.</div>
+                        </div>
+                        <div class="item-cost"><span id="up-auto-cost">500</span>G</div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn active" onclick="switchTab('home', this)">🏠 홈</button>
+            <button class="nav-btn" onclick="switchTab('shop', this)">🛒 상점</button>
+        </nav>
+
+        <div id="game-log">환영합니다! 고양이를 클릭해서 돈을 버세요.</div>
+    </div>
+
+    <audio id="sfx-oiiaioo" src="images/sound-oiiaioo.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
